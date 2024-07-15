@@ -1,115 +1,223 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  
+  List names = ["Mitch", "Sharon", "Vince"];
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        // backgroundColor: Colors.deepPurple,
+        // AppBar is the top of the Screen.
+        appBar: AppBar(
+          title: Text("My App"),
+          backgroundColor: Colors.deepPurple[200],
+          elevation: 0,
+          leading: Icon(Icons.menu), // icon for the left side.
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout))], // icon on the right side.
+        ),
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+        /*
+        // Body of the Applciation Screen.
+        body: Center(
+          child: Container(
+            height: 300,
+            width: 300,
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              // curving the corners
+              borderRadius: BorderRadius.circular(20)
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            padding: EdgeInsets.all(25),
+            // child: Text(
+            //   "Pranav Suryadevara",
+            //   style: TextStyle(
+            //     color: Colors.white,
+            //     fontSize: 28,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            child: Icon(
+              Icons.favorite,
+              color: Colors.white,
+              size: 64,
+            ),
+          ),
+        ),
+
+        */
+
+        /* 
+
+        // Columns
+        body: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          
+          /*
+          children: [
+          // 1st box
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.deepPurple,
+          ),
+          // 2nd box
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.deepPurple[400],
+          ),
+          // 3rd box
+          Container(
+            height: 0,
+            width: 200,
+            color: Colors.deepOrange[200],
+          ),
+          // 3rd box
+          Expanded( // fills up the rest of the space.
+            child: Container( 
+              // when height isn't specified it means 0.
+              width: 200,
+              color: Colors.deepPurple[200],
+            ),
+          )
+        ]),
+        */
+        // instead we can just give three Expanded to divide the screen evenly without specifying a height or width.
+        children: [
+          // 1st box
+          Expanded(
+            child: Container(
+              color: Colors.deepPurple,
+            ),
+          ),
+
+          // 2nd box
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.deepPurple[400],
+            ),
+          ),
+
+          // 3rd box
+          Expanded(
+            child: Container(
+              color: Colors.deepPurple[200],
+            ),
+          ),
+        ]),
+
+        */
+      
+      /*
+        // ListView
+        body: ListView(
+          scrollDirection: Axis.horizontal, // scroll direction is vertical by default.
+        children: [
+          // 1st box
+          Container(
+            height: 350,
+            width: 450,
+            color: Colors.deepPurple,
+          ),
+          // 2nd box
+          Container(
+            width: 450,
+            height: 350,
+            color: Colors.deepPurple[400],
+          ),
+
+          // 3rd box
+          Container(
+            width: 450,
+            height: 350,
+            color: Colors.deepPurple[200],
+          ),
+        ]),
+
+        */
+
+        /*
+        // ListView using a builder.
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) => ListTile(
+            title: Text(index.toString()),
+          ),
+        ),
+        */
+        
+        /*
+        // ListView using a builder.
+        body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (context, index) => ListTile(
+            title: Text(names[index]),
+          ),
+        ),
+        */
+
+        /*
+        body: GridView.builder(
+          itemCount: 64,
+          gridDelegate: 
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8), // how many we want in each row of the grid.
+          itemBuilder: (context, index) => Container(
+            color: Colors.deepOrange,
+            margin: EdgeInsets.all(2),
+          ),
+        ),
+        */
+
+        /*
+        // Stack() Widget.
+        body: Stack(
+          children: [
+            //big box
+            Container(
+              height: 300,
+              width: 300,
+              color: Colors.deepPurple,
+            ),
+            Container(
+              height: 200,
+              width: 200,
+              color: Colors.deepPurple[400],
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.deepPurple[200],
             ),
           ],
         ),
+        */
+
+        // Gesture Detector
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              // do something when the user taps on the conatiner.
+              print("User Tapped...");
+            },
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.deepPurple[300],
+              child: Center(child: Text("Tap Me!!!!")),
+            ),
+          ),
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
