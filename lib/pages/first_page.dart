@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/profile_page.dart';
-import 'package:flutter_application_1/pages/second_page.dart';
 import 'package:flutter_application_1/pages/settings_page.dart';
 
 class FirstPage extends StatefulWidget {
