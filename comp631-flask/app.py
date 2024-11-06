@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/recommend": {"origins": "http://localhost:3000"}})
 
 # Initialize Spotipy client
-client_credentials_manager = SpotifyClientCredentials(client_id='d491d8d1fb704aecbfacf6df5d0b193e', client_secret='2a4a064cce9b4295982e3dfbdad3c89e')
+client_credentials_manager = SpotifyClientCredentials(client_id='YOUR_SPOTIFY_CLIENT_ID_HERE', client_secret='YOUR_SPOTIFY_CLIENT_SECRET_HERE')
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # Define excluded fields
